@@ -46,7 +46,7 @@ During deployment, please ensure the following:
 4. Run the game:
 
     ```bash
-    php index.php
+    php src/index.php
     ```
 
 ### Dockerized Execution
