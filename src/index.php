@@ -26,7 +26,7 @@ Streams::line("Welcome to the Racing Game!");
 Streams::line("Get ready for an exciting race!");
 Streams::line("-----------------------------------------------------------");
 
-$vehiclesJsonPath = __DIR__ . '/public/vehicles.json';
+$vehiclesJsonPath = __DIR__ . '/resources/vehicles.json';
 $vehiclesData = json_decode(file_get_contents($vehiclesJsonPath), true);
 
 $vehicles = [];

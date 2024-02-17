@@ -22,7 +22,7 @@ class RacingGame
     {
         $progressBars = $this->initializeProgressBars($distance);
         $fasterVehicle = $this->getFasterVehicle();
-        $speedPercent = abs($this->players[0]['vehicle']->getMaxSpeed() / $this->players[1]['vehicle']->getMaxSpeed());
+        $speedPercent = abs($this->players[0]['vehicle']->getMaxSpeedInKmPerHour() / $this->players[1]['vehicle']->getMaxSpeedInKmPerHour());
         $flag = 0;
 
         while (!empty($progressBars)) {
@@ -85,7 +85,7 @@ class RacingGame
 
     private function getFasterVehicle(): Vehicle
     {
-        return $this->players[0]['vehicle']->getMaxSpeed() > $this->players[1]['vehicle']->getMaxSpeed()
+        return $this->players[0]['vehicle']->getMaxSpeedInKmPerHour() > $this->players[1]['vehicle']->getMaxSpeedInKmPerHour()
             ? $this->players[0]['vehicle']
             : $this->players[1]['vehicle'];
     }

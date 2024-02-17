@@ -26,6 +26,11 @@ class Vehicle
         return $this->maxSpeed;
     }
 
+    public function getMaxSpeedInKmPerHour(): float
+    {
+        return $this->convertToKmPerHour($this->maxSpeed);
+    }
+
     public function getUnit(): string
     {
         return $this->unit;
@@ -33,6 +38,15 @@ class Vehicle
 
     public function calculateTime(float $distance): float
     {
-        return $distance / $this->maxSpeed;
+        $speedInKmPerHour = $this->convertToKmPerHour($this->maxSpeed);
+        return $distance / $speedInKmPerHour;
+    }
+
+    private function convertToKmPerHour(int $speed): float
+    {
+        return match ($this->unit) {
+            'knots','Kts' => $speed * 1.852,
+            default => $speed,
+        };
     }
 }
